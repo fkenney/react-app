@@ -1,24 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Sidebar.js'
+import Dashboard from './Dashboard';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div class="row">
+          <div class="col-md-3">
+              <Sidebar />
+          </div>
+          <div class="col-md-9">
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/workouts" element={<Dashboard />}>
+
+                  </Route>
+                </Routes>
+              </BrowserRouter>
+          </div>
+      </div>
+   </>
+    
+
   );
 }
 
